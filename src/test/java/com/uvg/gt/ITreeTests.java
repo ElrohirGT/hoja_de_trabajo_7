@@ -50,30 +50,6 @@ public class ITreeTests {
         assertTrue(tree.contains(15));
     }
 
-    @ParameterizedTest
-    @MethodSource("createTreesImplementations")
-    public void removeWorks(ITree<Integer> tree) {
-        tree.insert(5);
-        tree.remove(5);
-
-        assertTrue(tree.isEmpty());
-
-        tree.insert(10);
-        tree.insert(15);
-        tree.insert(25);
-        tree.insert(2);
-        tree.insert(4);
-
-        assertEquals(15, tree.remove(15));
-        assertEquals(25, tree.remove(25));
-        assertEquals(2, tree.remove(2));
-        assertEquals(4, tree.remove(4));
-        assertEquals(10, tree.remove(10));
-
-        assertTrue(tree.isEmpty());
-        assertTrue(tree.remove(30) == null);
-    }
-
     private static Stream<Arguments> createTreesImplementations() {
         return Stream.of(Arguments.of(new BinaryTree<Integer>()));
     }

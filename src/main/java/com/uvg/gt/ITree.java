@@ -24,14 +24,6 @@ public interface ITree<T extends Comparable<T>> {
     public T get(T item);
 
     /**
-     * Removes a value from the tree.
-     * 
-     * @param item The value to remove.
-     * @return the value removed, if it doesn't found any then null.
-     */
-    public T remove(T item);
-
-    /**
      * Checks if the tree contains a certain item.
      * 
      * @param item the item to check
