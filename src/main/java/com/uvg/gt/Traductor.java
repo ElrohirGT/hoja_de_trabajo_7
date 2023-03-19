@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class Traductor {
 
 	// arbol con las asociaciones
-	private BinaryTree arbol;
+	private BinaryTree<Item> arbol;
 
 	/**
 	 * Método que pide el idioma de origen y destino de la traduccion
@@ -71,10 +71,11 @@ public class Traductor {
 	 * Método que traduce las oraciones de un txt de ejemplo
 	 * 
 	 */
-	public void traductorFrase(BinaryTree arbol, String origen, String destino) {
+	public void traductorFrase(BinaryTree<Item> arbol, String origen, String destino) {
 
 		// nodo encontrado en cada iteracion del txt
-		NodoArbol<Item> nodo_encontrado;
+		Item item_encontrado;
+		Item item = new Item();
 
 		// evalua errores
 		try {
@@ -100,19 +101,19 @@ public class Traductor {
 				// recorrer la lista con las palabras a traducir
 				for (String palabra : palabras) {
 
+					item.setLlave(palabra);
+
 					// obtener el nodo segun con el valor con la palabra enviada
-					nodo_encontrado = arbol.buscarPorLlave(palabra);
+					item_encontrado = arbol.get(item);
 
 					// si el nodo está vacío, guardar la palabra en su formato "*palabra*"
-					if (nodo_encontrado == null) {
+					if (item_encontrado == null) {
 						traduccion.add("*" + palabra + "*");
 
 						// si el nodo no está vacío, guardar su traducción en la lista
 					} else {
-						// obtener el valor del nodo
-						Item item = nodo_encontrado.getValor();
 						// se obtiene la clase con los valores del valor del nodo
-						Idiomas idiomas = item.getValor();
+						Idiomas idiomas = item_encontrado.getValor();
 
 						// si el destino es ingles, retornar su traducción
 						if (destino.equals("1")) {

@@ -5,7 +5,7 @@ package com.uvg.gt;
  * 
  * Tiene como objetivo representar la clase llave-valor que almacenará el árbol
  */
-public class Item {
+public class Item implements Comparable<Item> {
 
 	/**
 	 * Llave que identifica a la clase
@@ -26,6 +26,12 @@ public class Item {
 		super();
 		this.llave = llave;
 		this.valor = valor;
+	}
+
+	/**
+	 * Método que construye un Item vacío
+	 */
+	public Item() {
 	}
 
 	/**
@@ -62,6 +68,11 @@ public class Item {
 	 */
 	public void setValor(Idiomas valor) {
 		this.valor = valor;
+	}
+
+	@Override
+	public int compareTo(Item o) {
+		return this.llave.compareTo(o.getLlave());
 	}
 
 }

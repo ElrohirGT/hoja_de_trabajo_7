@@ -21,10 +21,10 @@ public class Asociation {
 	 * @param decision, decision del usuario sobre el idioma origen
 	 * @return arbol, arbol con las asociaciones del diccionario
 	 */
-	public static Arbol leerDatos(String decision) throws FileNotFoundException {
+	public static BinaryTree<Item> leerDatos(String decision) throws FileNotFoundException {
 
 		// arbol con las asociaciones
-		Arbol arbol = new Arbol();
+		BinaryTree<Item> arbol = new BinaryTree<Item>();
 
 		// evalua errores durante la lectura del arhivo txt
 		try {
@@ -50,19 +50,19 @@ public class Asociation {
 				if (decision.equals("ingles")) {
 					// Crear un Item
 					Item item = new Item(ingles, idiomas);
-					arbol.insertar(item);
+					arbol.insert(item);
 
 					// decision = español
 				} else if (decision.equals("espanol")) {
 					// Crear un Item
 					Item item = new Item(espanol, idiomas);
-					arbol.insertar(item);
+					arbol.insert(item);
 
 					// decision = frances
 				} else {
 					// Crear un Item
 					Item item = new Item(frances, idiomas);
-					arbol.insertar(item);
+					arbol.insert(item);
 				}
 
 			}
