@@ -65,6 +65,7 @@ public class Traductor {
 			traductorFrase(arbol, origen, destino);
 
 		}
+		sc.close();
 	}
 
 	/**
