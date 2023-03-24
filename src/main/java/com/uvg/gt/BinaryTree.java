@@ -1,8 +1,5 @@
 package com.uvg.gt;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class BinaryTree<T extends Comparable<T>> implements ITree<T> {
 
     private BinaryTreeNode<T> _root = null;
@@ -34,17 +31,16 @@ public class BinaryTree<T extends Comparable<T>> implements ITree<T> {
     }
 
     @Override
-    public SearchResult<T> get(T item) {
-        List<BinaryTreeNode<T>> path = new ArrayList<>();
-        var node = findNodeOf(item, path);
+    public T get(T item) {
+        var node = findNodeOf(item);
         if (node == null) {
             return null;
         }
 
-        return new SearchResult<>(node.getValue(), path);
+        return node.getValue();
     }
 
-    private BinaryTreeNode<T> findNodeOf(T item, List<BinaryTreeNode<T>> path) {
+    private BinaryTreeNode<T> findNodeOf(T item) {
         if (isEmpty()) {
             return null;
         }

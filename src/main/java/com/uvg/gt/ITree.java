@@ -21,7 +21,7 @@ public interface ITree<T extends Comparable<T>> {
      * @param item The item to search for
      * @return the item if it exists, null otherwise.
      */
-    public SearchResult<T> get(T item);
+    public T get(T item);
 
     /**
      * Checks if the tree contains a certain item.
