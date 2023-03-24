@@ -98,4 +98,9 @@ public class BinaryTree<T extends Comparable<T>> implements ITree<T> {
         return get(item) != null;
     }
 
+    @Override
+    public BinaryTreeNode<T> getRoot() {
+        return _root;
+    }
+
 }

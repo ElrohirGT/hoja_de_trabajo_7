@@ -30,4 +30,9 @@ public interface ITree<T extends Comparable<T>> {
      * @return true if the item exists otherwise false.
      */
     public boolean contains(T item);
+
+    /**
+     * @return the root of the tree.
+     */
+    public BinaryTreeNode<T> getRoot();
 }
