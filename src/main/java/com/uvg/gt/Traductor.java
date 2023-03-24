@@ -74,6 +74,7 @@ public class Traductor {
 	 */
 	public void traductorFrase(BinaryTree<Item> arbol, String origen, String destino) {
 
+		System.out.println("Las traducciones son:\n");
 		// nodo encontrado en cada iteracion del txt
 		Item item_encontrado;
 		Item item = new Item();
@@ -106,8 +107,6 @@ public class Traductor {
 
 					// obtener el nodo con el nodo segun con el valor con la palabra enviada
 					item_encontrado = arbol.get(item);
-					// recorrido del arbol in-order
-					BinaryTreeNode<Item> raiz = arbol.getRoot();
 
 					// si el nodo está vacío, guardar la palabra en su formato "*palabra*"
 					if (item_encontrado == null) {
@@ -137,28 +136,15 @@ public class Traductor {
 				// mostrar la oracion y traduccion
 				System.out.println(palabras);
 				System.out.println(traduccion);
-				imprimirArbol(raiz, 0);
 			}
 			br.close();
 		} catch (IOException e) {
 			System.out.println("Error al leer el archivo");
 		}
-
+		System.out.println("\nLa jerarquia del arbol es:\n");
+		arbol.inOrder(arbol.getRoot(), 0);
 	}
 
-	public <T> void imprimirArbol(BinaryTreeNode<T> raiz, int nivel) {
-		if (raiz == null) {
-			return;
-		}
-		String prefix = "";
-		for (int i = 0; i< nivel; i++) {
-			prefix += "\t";
-		}
-		System.out.println(prefix + raiz.getValue());
-		imprimirArbol(raiz.getLeft(), nivel++);
-		imprimitArbol(raiz.getRight(), nivel++);
-	}
-	
 	public static void main(String[] args) throws FileNotFoundException {
 		Traductor t = new Traductor();
 
